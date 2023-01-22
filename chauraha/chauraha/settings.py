@@ -228,11 +228,11 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # later you can change
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://echaura.netlify.app"
-]
+# CORS_ALLOWED_ORIGINS = [ 
+#     "https://echaura.netlify.app"
+# ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -240,8 +240,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True  
 EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = os.environ['email']
-EMAIL_HOST_PASSWORD = os.environ['password_email']
+EMAIL_HOST_USER = "email@djanognitrr.com" #os.environ['email']
+EMAIL_HOST_PASSWORD =  "MYnme" #os.environ['password_email']
 EMAIL_PORT = 587  
 
 

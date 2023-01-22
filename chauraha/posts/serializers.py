@@ -1,24 +1,17 @@
-from typing_extensions import Required
+
 from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
 from .models  import Post, Comment, Subly
 from users.serializers import CustomUserSerializer
 
 class PostSerializer(serializers.ModelSerializer):
-    #userdetail = CustomUserSerializer(many=True, read_only = True)
     author = serializers.SlugRelatedField(
         read_only=True,
         slug_field='branch',
         allow_null=True
-     )
- 
-    image = serializers.FileField(required= False)
+    )
+    image = serializers.ImageField(required=False, allow_null=True)
 
-    # user = CustomUserSerializer(many=True, read_only = True)
-    # # authid = serializers.SlugRelatedField(
-    # #     read_only=True,
-    # #     slug_field='id'
-    # #  )
     author_id = serializers.SerializerMethodField( read_only = True)
     def get_author_id(self, obj):
         if obj.author:
@@ -26,24 +19,11 @@ class PostSerializer(serializers.ModelSerializer):
         else:
             return None
 
-    
-    # like_count = serializers.SerializerMethodField( read_only = True)
-    # def get_likes(self, obj):
-    #     return obj.like.count()
-
     class Meta:
         model = Post
         fields = ('id', 'content', 'author', 'author_id', 'like', 'image')
-        read_only_fields =  ['like', 'author', 'author_id' ]
+        read_only_fields =  ['like', 'author', 'author_id' , 'image']
 
-    # def get_likes(self, obj):
-    #     return obj.like.count()
-
-# class PostLikeSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Post
-#         fields = ('id', 'like',)
-        
     
 
 
