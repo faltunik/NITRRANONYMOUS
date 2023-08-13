@@ -37,9 +37,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f7_ksnd&5clpp1rmr2=dp)9nbopqm-6+#w27ni^8j+qz&4%3gm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nitrr-anon.azurewebsites.net']
 
 
 # Application definition
@@ -237,12 +237,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 AUTH_USER_MODEL = 'users.CustomUser'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = "email@djanognitrr.com" #os.environ['email']
-EMAIL_HOST_PASSWORD =  "MYnme" #os.environ['password_email']
-EMAIL_PORT = 587  
 
 
 
